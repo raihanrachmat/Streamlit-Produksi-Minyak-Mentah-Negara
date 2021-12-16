@@ -14,6 +14,10 @@ def load_data():
 
 dataset=load_data()
 datanegara = pd.read_json('kode_negara_lengkap.json')
+image = Image.open('logo ITB.png')
+st.sidebar.image(image)
+st.sidebar.subheader('''Nama: Raihan Abdurrafi Rachmat
+NIM: 12220126''')
 select = st.sidebar.selectbox('Pilih negara',datanegara['name'])
 state_data = dataset[dataset['Negara'] == select]
 select_year = st.sidebar.selectbox('Pilih tahun',dataset['Tahun'])
