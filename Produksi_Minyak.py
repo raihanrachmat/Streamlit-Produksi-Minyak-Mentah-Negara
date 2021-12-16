@@ -15,7 +15,7 @@ def load_data():
 
 dataset=load_data()
 datanegara = pd.read_json('kode_negara_lengkap.json')
-image = Image.open('logo ITB.png')
+image = Image.open('Logo ITB.png')
 st.sidebar.image(image)
 st.sidebar.subheader('''Nama: Raihan Abdurrafi Rachmat
 NIM: 12220126''')
