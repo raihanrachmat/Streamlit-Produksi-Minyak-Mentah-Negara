@@ -96,7 +96,7 @@ if menu=="Negara":
 year_total = get_total_year(state_year)
 if menu=="Tahun":
     dataset_bersih = dataset_bersih[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
-    st.markdown("### Grafik negara yang menghasilkan minyak pada " +"tahun %s " % (select_year))
+    st.markdown("### Grafik negara yang memproduksi minyak pada " +"tahun %s " % (select_year))
     year_total_graph = px.bar(year_total,x='Jumlah Produksi',y='Negara',labels={'Jumlah':'Produksi tahun %s' % (select_year)})
     st.plotly_chart(year_total_graph,use_container_width=True)
 
