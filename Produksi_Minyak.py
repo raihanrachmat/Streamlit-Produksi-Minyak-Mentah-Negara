@@ -91,19 +91,7 @@ if menu=="Negara":
         hasil = info_data[info_data['Jumlah Produksi']==info_data['Jumlah Produksi'].min()]
         st.dataframe(hasil)
 
-        st.markdown("Produksi minyak paling tinggi secara kumulatif")
-        dataset_olah=dataset_negara[dataset_negara['Negara']==select]
-        dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
-        dataset_olah['Kumulatif Tertinggi'] = dataset_olah['Jumlah Produksi'].cumsum()
-        hasil = dataset_olah[dataset_olah['Kumulatif Tertinggi']==dataset_olah['Kumulatif Tertinggi'].max()]
-        st.dataframe(hasil)
-
-        st.markdown("Produksi minyak paling rendah secara kumulatif")
-        dataset_olah=dataset_negara[dataset_negara['Negara']==select]
-        dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
-        dataset_olah['Kumulatif Terendah'] = dataset_olah['Jumlah Produksi'].cumsum()
-        hasil = dataset_olah[dataset_olah['Kumulatif Terendah']==dataset_olah['Kumulatif Terendah'].min()]
-        st.dataframe(hasil)
+        
        
 year_total = get_total_year(state_year)
 if menu=="Tahun":
