@@ -73,7 +73,7 @@ if menu=="Show All":
         st.dataframe(hasil)
     
 if menu=="Negara":
-    st.markdown("### Grafik pada negara "+select)
+    st.markdown("### Grafik Produksi Minyak Negara "+select)
     state_total_graph = px.bar(state_total, x='Tahun',y='Jumlah Produksi',labels={'Negara produsen minyak = %s' % (select)})
     st.plotly_chart(state_total_graph,use_container_width=True)
 
