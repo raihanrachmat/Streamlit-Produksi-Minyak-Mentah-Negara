@@ -113,17 +113,17 @@ if menu=="Tahun":
     st.plotly_chart(year_total_graph,use_container_width=True)
 
     if st.button("Analisa Data"):
-        st.markdown("Produksi paling tinggi")
+        st.markdown("Negara yang Memproduksi Minyak Terbesar")
         data_tahun =dataset_bersih[dataset_bersih["Tahun"] == select_year]
         data_tahun=data_tahun[data_tahun['Jumlah Produksi']==data_tahun['Jumlah Produksi'].max()]
         st.dataframe(data_tahun)
 
-        st.markdown("Produksi paling rendah")
+        st.markdown("Negara yang Memproduksi Minyak Terkecil")
         data_rendah =dataset_bersih[dataset_bersih["Tahun"] == select_year]
         data_rendah=data_rendah[data_rendah['Jumlah Produksi']==data_rendah['Jumlah Produksi'].min()]
         st.dataframe(data_rendah)
 
-        st.markdown("Negara tidak produksi pada tahun %s"%(select_year))
+        st.markdown("Negara yang Tidak Memproduksi Minyak pada Tahun %s"%(select_year))
         tidak_produksi = dataset[dataset["Tahun"] == select_year]
         tidak_produksi = tidak_produksi[tidak_produksi['Jumlah Produksi'] == 0]
         tidak_produksi = tidak_produksi[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
