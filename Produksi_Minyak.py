@@ -79,13 +79,13 @@ if menu=="Negara":
 
     if st.button("Analisa Data "):
         dataset_negara = dataset
-        st.markdown("Negara yang Memproduksi Minyak Paling Tinggi")
+        st.markdown("Produksi Minyak Paling Tinggi")
         dataset_olah = dataset_negara[dataset_negara['Negara']==select]
         dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         hasil = dataset_olah[dataset_olah['Jumlah Produksi']==dataset_olah['Jumlah Produksi'].max()]
         st.dataframe(hasil)
 
-        st.markdown("Negara yang Memproduksi Minyak Paling Rendah")
+        st.markdown("Produksi Minyak Paling Rendah")
         dataset_olah=dataset[dataset['Negara']==select]
         info_data = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         hasil = info_data[info_data['Jumlah Produksi']==info_data['Jumlah Produksi'].min()]
