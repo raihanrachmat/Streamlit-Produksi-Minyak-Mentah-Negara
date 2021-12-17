@@ -68,7 +68,7 @@ if menu=="Show All":
         st.dataframe(hasil)
 
         tidak_produksi = dataKumulatif[dataKumulatif['Jumlah Produksi'] == 0]
-        st.subheader("Negara-negara yang tidak berproduksi:")
+        st.subheader("Negara-negara yang tidak memproduksi minyak :")
         hasil = tidak_produksi[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         st.dataframe(hasil)
     
@@ -79,26 +79,26 @@ if menu=="Negara":
 
     if st.button("Analisa Data "):
         dataset_negara = dataset
-        st.markdown("Produksi paling tinggi")
+        st.markdown("Negara yang Mmeproduksi Minyak Paling Tinggi")
         dataset_olah = dataset_negara[dataset_negara['Negara']==select]
         dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         hasil = dataset_olah[dataset_olah['Jumlah Produksi']==dataset_olah['Jumlah Produksi'].max()]
         st.dataframe(hasil)
 
-        st.markdown("Produksi paling rendah")
+        st.markdown("Negara yang Mmproduksi Minyak Paling Rendah")
         dataset_olah=dataset[dataset['Negara']==select]
         info_data = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         hasil = info_data[info_data['Jumlah Produksi']==info_data['Jumlah Produksi'].min()]
         st.dataframe(hasil)
 
-        st.markdown("Produksi paling tinggi secara kumulatif")
+        st.markdown("Produksi minyak paling tinggi secara kumulatif")
         dataset_olah=dataset_negara[dataset_negara['Negara']==select]
         dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         dataset_olah['Kumulatif Tertinggi'] = dataset_olah['Jumlah Produksi'].cumsum()
         hasil = dataset_olah[dataset_olah['Kumulatif Tertinggi']==dataset_olah['Kumulatif Tertinggi'].max()]
         st.dataframe(hasil)
 
-        st.markdown("Produksi paling rendah secara kumulatif")
+        st.markdown("Produksi minyak paling rendah secara kumulatif")
         dataset_olah=dataset_negara[dataset_negara['Negara']==select]
         dataset_olah = dataset_olah[['Negara','Tahun','Jumlah Produksi','Kode Negara','Wilayah','Wilayah Bagian']]
         dataset_olah['Kumulatif Terendah'] = dataset_olah['Jumlah Produksi'].cumsum()
@@ -113,12 +113,12 @@ if menu=="Tahun":
     st.plotly_chart(year_total_graph,use_container_width=True)
 
     if st.button("Analisa Data"):
-        st.markdown("Negara yang Memproduksi Minyak Terbesar")
+        st.markdown("Negara yang Memproduksi Minyak Paling Tinggi")
         data_tahun =dataset_bersih[dataset_bersih["Tahun"] == select_year]
         data_tahun=data_tahun[data_tahun['Jumlah Produksi']==data_tahun['Jumlah Produksi'].max()]
         st.dataframe(data_tahun)
 
-        st.markdown("Negara yang Memproduksi Minyak Terkecil")
+        st.markdown("Negara yang Memproduksi Minyak Paling Rendah")
         data_rendah =dataset_bersih[dataset_bersih["Tahun"] == select_year]
         data_rendah=data_rendah[data_rendah['Jumlah Produksi']==data_rendah['Jumlah Produksi'].min()]
         st.dataframe(data_rendah)
